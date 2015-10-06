@@ -1,0 +1,165 @@
+
+> regmodeljc=lm(US....Actual.~Jackie.Chan)
+
+> summary(regmodeljc)
+
+Call:
+lm(formula = US....Actual. ~ Jackie.Chan)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.179802 -0.064674  0.005858  0.071943  0.122454 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  0.39797    0.07963   4.998 1.86e-05 ***
+Jackie.Chan  0.64255    0.07001   9.178 1.33e-10 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.08958 on 33 degrees of freedom
+Multiple R-squared:  0.7185,	Adjusted R-squared:   0.71 
+F-statistic: 84.23 on 1 and 33 DF,  p-value: 1.327e-10
+
+
+> regmodelb=lm(US....Actual.~Brad)
+
+> summary(regmodelb)
+
+Call:
+lm(formula = US....Actual. ~ Brad)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.269780 -0.123218  0.005427  0.091016  0.313835 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  0.79428    0.08578   9.259 1.07e-10 ***
+Brad         0.29862    0.07668   3.894 0.000454 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.1397 on 33 degrees of freedom
+Multiple R-squared:  0.3149,	Adjusted R-squared:  0.2941 
+F-statistic: 15.17 on 1 and 33 DF,  p-value: 0.0004536
+
+
+> regmodels=lm(US....Actual.~Shahrukh)
+
+> summary(regmodels)
+
+Call:
+lm(formula = US....Actual. ~ Shahrukh)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.21265 -0.05546  0.01593  0.05541  0.24106 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  0.45225    0.07932   5.702 2.32e-06 ***
+Shahrukh     0.59685    0.06993   8.535 7.30e-10 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.09427 on 33 degrees of freedom
+Multiple R-squared:  0.6882,	Adjusted R-squared:  0.6788 
+F-statistic: 72.84 on 1 and 33 DF,  p-value: 7.303e-10
+
+
+> anova(regmodeljc, regmodelb,regmodels)
+Analysis of Variance Table
+
+Model 1: US....Actual. ~ Jackie.Chan
+Model 2: US....Actual. ~ Brad
+Model 3: US....Actual. ~ Shahrukh
+  Res.Df     RSS Df Sum of Sq F Pr(>F)
+1     33 0.26480                      
+2     33 0.64447  0  -0.37967         
+3     33 0.29328  0   0.35119         
+
+> regmodeljcb=lm(US....Actual.~Jackie.Chan + Brad)
+
+> summary(regmodeljcb)
+
+Call:
+lm(formula = US....Actual. ~ Jackie.Chan + Brad)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.193632 -0.038168  0.004612  0.059520  0.133287 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  0.37163    0.07878   4.717 4.51e-05 ***
+Jackie.Chan  0.57383    0.07866   7.295 2.72e-08 ***
+Brad         0.09584    0.05523   1.735   0.0923 .  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.08697 on 32 degrees of freedom
+Multiple R-squared:  0.7427,	Adjusted R-squared:  0.7266 
+F-statistic: 46.19 on 2 and 32 DF,  p-value: 3.687e-10
+
+
+> regmodelbs=lm(US....Actual.~Brad + Shahrukh)
+
+> summary(regmodelbs)
+
+Call:
+lm(formula = US....Actual. ~ Brad + Shahrukh)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.080229 -0.040718 -0.002622  0.026759  0.112410 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  0.23731    0.05367   4.421 0.000106 ***
+Brad         0.24482    0.03058   8.007 3.85e-09 ***
+Shahrukh     0.55334    0.04134  13.387 1.17e-14 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.05524 on 32 degrees of freedom
+Multiple R-squared:  0.8962,	Adjusted R-squared:  0.8897 
+F-statistic: 138.1 on 2 and 32 DF,  p-value: < 2.2e-16
+
+
+> regmodelsjc=lm(US....Actual.~Shahrukh + Jackie.Chan)
+
+> summary(regmodelsjc)
+
+Call:
+lm(formula = US....Actual. ~ Shahrukh + Jackie.Chan)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.13184 -0.06502  0.01201  0.04937  0.16765 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  0.34313    0.07264   4.724 4.43e-05 ***
+Shahrukh     0.30551    0.09640   3.169 0.003356 ** 
+Jackie.Chan  0.38765    0.10157   3.817 0.000585 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.07936 on 32 degrees of freedom
+Multiple R-squared:  0.7857,	Adjusted R-squared:  0.7724 
+F-statistic: 58.68 on 2 and 32 DF,  p-value: 1.971e-11
+
+
+> anova(regmodeljcb, regmodelbs,regmodelsjc)
+Analysis of Variance Table
+
+Model 1: US....Actual. ~ Jackie.Chan + Brad
+Model 2: US....Actual. ~ Brad + Shahrukh
+Model 3: US....Actual. ~ Shahrukh + Jackie.Chan
+  Res.Df      RSS Df Sum of Sq F Pr(>F)
+1     32 0.242020                      
+2     32 0.097647  0   0.14437         
+3     32 0.201540  0  -0.10389         
+
+> sink()

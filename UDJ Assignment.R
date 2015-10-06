@@ -1,4 +1,5 @@
 expertsdata= read.csv("S13FiringExperts.csv")
+attach(expertsdata)
 
 # Start writing to an output file
 sink('udj-regression results.txt')
